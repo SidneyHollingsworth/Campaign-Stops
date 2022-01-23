@@ -25,7 +25,7 @@ Ans. New York City, NY with 7 visits and Charlotte, NC with four visits
 SELECT 
     count(*) AS total_events,
     count(distinct location) AS distinct_locations
-FROM analysis.clinton_campaign_stops  
+FROM analysis.tmc_clinton  
 WHERE (date >= '20161001' AND date <= '20161031');
 
 Ans. 32 total events and 29 distinct locations
@@ -39,7 +39,7 @@ SELECT
         ELSE 'red state'
     END AS partisan_status,
     count(*) AS clinton_visits
-FROM analysis.clinton_campaign_stops
+FROM analysis.tmc_clinton
 GROUP by 1
 ORDER BY 2 DESC;
 
@@ -50,8 +50,8 @@ Ans. 53 visits to a swing state, 2 visits to a red state, and 12 visits to a blu
 SELECT 
 	count(location) AS number_of_visits,
 	location
-FROM analysis.clinton_campaign_stops  
-JOIN analysis.task_one_trump
+FROM analysis.tmc_clinton  
+JOIN analysis.tmc_trump
 ON clinton_campaign_stops.location = task_one_trump.location
 GROUP BY 2
 ORDER BY 1 DESC;
@@ -71,7 +71,7 @@ Incorrect Draft:
 SELECT state, date,
        COUNT(state) OVER
          (PARTITION BY state ORDER BY date ASC) AS running_count
-  FROM analysis.clinton_campaign_stops;
+  FROM analysis.tmc_clinton;
 
 
 ====
