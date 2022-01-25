@@ -74,16 +74,26 @@ Ans. 53 visits to a swing state, 2 visits to a red state, and 12 visits to a blu
 
 #### Q5: What locations had the most combined visits between Trump and Clinton? (Use a join, if you can!)
 
-`SELECT 
-	count(location) AS number_of_visits,
-	location
-FROM analysis.tmc_clinton  
-JOIN analysis.tmc_trump
-ON clinton_campaign_stops.location = task_one_trump.location
-GROUP BY 2
-ORDER BY 1 DESC;`
+`with cte_trump AS
+(
+	SELECT location, lat, lng, COUNT(1) total_count
+	FROM tmc.trump
+	GROUP BY location, lat, lng
+	ORDER BY total_count DESC
+),
+cte_clinton AS
+(
+	SELECT location, lat, lng, COUNT(1) total_count
+	FROM tmc.clinton
+	GROUP BY location, lat, lng
+	ORDER BY total_count DESC
+)
+SELECT t.location, c.total_count + t.total_count AS total_count
+FROM cte_trump t 
+JOIN cte_clinton c on t.lat = c.lat and t.lng = c.lng
+ORDER BY total_count DESC;`
 
-Ans. 
+Ans. New York, NY with 11 visits.
 
 #### Q6: CHALLENGE (not required): Use a window function to show the running count of events in a state by date.
 
