@@ -3,15 +3,7 @@ Completed Jan 25, 2022
 
 ---
 
-### Table of Content
-
-- [ETL Exercise](#etl-exercise)
-- [Sample Client Email](#sample-client-email)
-- [Analytics Exercise](#analytics-exercise)
-
----
-
-## ETL Exercise
+## Task 1: SQL
 
 ### Resources Used
 - Postgres
@@ -124,5 +116,5 @@ ORDER BY 2 DESC`
 
 ---
 
-## Sample Client Email
+## Task 2: Explanatory Email
 - View [Sample Email]()
