@@ -13,10 +13,14 @@ Completed Jan 25, 2022
 
 #### Q1. What are the last five locations Clinton visited during the previous campaign?
 
-`SELECT location, date
-FROM analysis.clinton_campaign_stops  
-ORDER BY date DESC
+`SELECT location, date 
+FROM tmc.clinton 
+ORDER BY date DESC 
 LIMIT 5;`
+
+<img width="255" alt="tmc_q1_query" src="https://user-images.githubusercontent.com/55712982/151003111-bc937a23-7b8b-4672-b78e-995a3562e02d.png">
+
+<img width="238" alt="tmc_q1_result" src="https://user-images.githubusercontent.com/55712982/151003654-3710e7a2-1950-4586-9b5e-1796fbc87ef3.png">
 
 Ans. New York City, NY; Philadelphia, PA; Raleigh, NC; Oakland, PA; Allendale, MI
 
@@ -29,6 +33,10 @@ FROM analysis.clinton_campaign_stops
 GROUP BY 2
 ORDER BY 1 DESC;`
 
+<img width="398" alt="tmc_q2_query" src="https://user-images.githubusercontent.com/55712982/151004433-9997be9b-9292-4b21-8e26-b7ac1f599102.png">
+
+<img width="298" alt="tmc_q2_result" src="https://user-images.githubusercontent.com/55712982/151004442-110d267e-53a3-4694-9475-0a0bda0cd2e1.png">
+
 Ans. New York City, NY with 7 visits and Charlotte, NC with four visits
 
 #### Q3: How many events did Clinton do in October? How many distinct locations?
@@ -38,6 +46,10 @@ Ans. New York City, NY with 7 visits and Charlotte, NC with four visits
     count(distinct location) AS distinct_locations
 FROM analysis.tmc_clinton  
 WHERE (date >= '20161001' AND date <= '20161031');`
+
+<img width="484" alt="Screen Shot 2022-01-25 at 9 04 29 AM" src="https://user-images.githubusercontent.com/55712982/151004748-211ebc3c-6b11-4158-b55a-2bf7f5eabae0.png">
+
+<img width="288" alt="tmc_q3_result" src="https://user-images.githubusercontent.com/55712982/151004769-07ff11ed-31fc-4221-a062-185353e52845.png">
 
 Ans. 32 total events and 29 distinct locations
 
@@ -53,6 +65,10 @@ Ans. 32 total events and 29 distinct locations
 FROM analysis.tmc_clinton
 GROUP by 1
 ORDER BY 2 DESC;`
+
+<img width="867" alt="Screen Shot 2022-01-25 at 9 05 16 AM" src="https://user-images.githubusercontent.com/55712982/151004980-f57e1c57-a277-4970-af04-5979ad19057c.png">
+
+<img width="279" alt="tmc_q4_result" src="https://user-images.githubusercontent.com/55712982/151005000-981c70f1-5d33-485f-b95a-2971ff9e5b1b.png">
 
 Ans. 53 visits to a swing state, 2 visits to a red state, and 12 visits to a blue state
 
