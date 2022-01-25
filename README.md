@@ -101,19 +101,14 @@ Ans. New York, NY with 11 visits.
 
 #### Q6: CHALLENGE (not required): Use a window function to show the running count of events in a state by date.
 
-https://mode.com/sql-tutorial/sql-window-functions/
-https://alexchang7a.medium.com/sql-advanced-cheatsheet-window-functions-428113ef4a96
-https://learnsql.com/blog/sql-window-functions-cheat-sheet/Window_Functions_Cheat_Sheet_Letter.pdf
-https://www.postgresqltutorial.com/postgresql-window-function/
-https://www.sqlservercentral.com/forums/topic/sql-query-running-count
-
-Incorrect Draft:
-
 `SELECT state, date,
        COUNT(state) OVER
          (PARTITION BY state ORDER BY date ASC) AS running_count
   FROM analysis.tmc_clinton;`
 
+<img width="1017" alt="Screen Shot 2022-01-25 at 5 48 23 PM" src="https://user-images.githubusercontent.com/55712982/151078991-96e948c5-896e-4f56-9135-ac70a273e5fd.png">
+
+<img width="456" alt="Screen Shot 2022-01-25 at 5 48 49 PM" src="https://user-images.githubusercontent.com/55712982/151078962-a7fff62a-6c84-4df3-b598-8f67f097fa7f.png">
 
 ====
 
