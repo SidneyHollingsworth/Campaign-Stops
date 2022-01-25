@@ -93,6 +93,10 @@ FROM cte_trump t
 JOIN cte_clinton c on t.lat = c.lat and t.lng = c.lng
 ORDER BY total_count DESC;`
 
+<img width="610" alt="Screen Shot 2022-01-25 at 1 53 24 PM" src="https://user-images.githubusercontent.com/55712982/151049522-39d18678-4374-4f5c-925d-5c576a9e610c.png">
+
+<img width="287" alt="Screen Shot 2022-01-25 at 1 53 43 PM" src="https://user-images.githubusercontent.com/55712982/151049508-c14960c9-d6ff-44c5-9d49-e77945347575.png">
+
 Ans. New York, NY with 11 visits.
 
 #### Q6: CHALLENGE (not required): Use a window function to show the running count of events in a state by date.
